@@ -1,0 +1,126 @@
+-------------------------------------------------------------------------------
+BotDetect PHP CAPTCHA Library release notes
+-------------------------------------------------------------------------------
+
+For latest BotDetect PHP library version information, please visit: 
+-> http://captcha.com/doc/php/captcha-release-notes.html
+
+If you want to stay up-to-date with all new BotDetect releases, subscribe to:
+-> http://captcha.com/feeds/botdetect_captcha_release_notes.rss or
+-> http://captcha.com/feeds/botdetect_captcha_release_notes.atom
+
+
+v3.0.0   (Release date: 2014 Oct 15)
+-------------------------------------------------------------------------------
+-> Fixed a bug resulting with errors when using Non-Latin based locales for generating Captcha challenges
+-> Fixed a bug resulting in occasional PHP warnings when file access to data cached in the system temp folder fails
+
+
+v3.0.Beta3   (Release date: 2014 Jun 05)
+-------------------------------------------------------------------------------
+-> Fixed a bug in the BotDetect client-side script for Captcha sound playback in IE and other browsers incompatible with Html5 Wav audio, for Captcha sound icon clicks after the first one, when SoundRegenerationMode is set to Limited 
+-> Fixed a bug with Captcha sound playback occasionally locking up mobile browsers
+-> Fixed a bug resulting in occasional PHP warnings when file access to data cached in the system temp folder fails
+
+
+v3.0.Beta2    (Release date: 2014 Apr 22)
+-------------------------------------------------------------------------------
+-> Improved Captcha security by using a random Captcha code length by default (4-6 characters instead of 5)
+-> Fixed a bug with Captcha sound not playing on iOS devices
+-> Fixed a bug with Captcha sound occasionally not playing on Android 4.1+ devices
+-> Implemented the "sound regeneration mode" Captcha configuration setting controlling how will multiple consecutive requests for Captcha audio be handled (defaulting to limited sound regeneration)
+-> Improved server resource conservation by replaying the generated Captcha sound on the client without requesting a new sound from the server, in Html5 Wav audio compatible browsers that support it
+-> Improved Captcha controls usability by disabling and enabling Captcha controls (sound and reload icons) simultaneously instead of individually
+-> Fixed a bug where BotDetect would occasionally add "B:1" lines to the PHP error log (removed a left-over debugging error_log() call)
+-> Added user-friendly error messages when BotDetect is included in PHP websites without gd and mbstring support
+-> Added support for "nb" and "nob" Norwegian language codes in Captcha locales
+-> Added support for Indonesian Captcha localization ("id-Latn-ID")
+-> Improved Captcha readability by removing the "VV" sequence from Latin Captcha codes (easily confused with "W" in Captcha images)
+-> Minor improvements in readability, security and scalability of some ImageStyles (BlackOverlap, Bullets, Bullets2, CaughtInTheNet, CaughtInTheNet2, Collage, Corrosion, Graffiti2, Halo, Lego, Radar, Snow, -> Stitch, Strippy, Sunrays, Sunrays2, ThickThinLines, ThickThinLines2)
+-> Server-side caching of generated Captcha sounds (for iOS and SoundRegenerationMode::None use cases) uses PHP Session storage (should be automatically cleared often enough) instead of files in the system temp folder (might or might not be automatically cleared often enough)
+-> Added a JavaScript workaround for Back button issues with browsers re-displaying an expired Captcha image despite its "no-cache, no-store" Http response headers
+-> Fixed a minor syntax error in the BotDetect layout stylesheet (changed "filter: alpha(opacity:90)" to "filter: alpha(opacity=90)")
+-> Changed the default reload button tooltip from "Reload the Captcha code" to more user-friendly "Change the Captcha code"
+-> Fixed a bug in the PHP Login Captcha code sample using a non-existent path as the form action
+-> Fixed a bug with Captcha validation failing on full form submit in the the PHP jQuery Ajax contact form Captcha code sample
+-> Changed the jQuery Validation Captcha code sample to execute client-side validation on textbox blur; fixed a bug with jQuery validation script sequence in IE 6; updated the link to the jQuery validate plugin homepage
+-> Fixed the description of the Captcha sound start delay configuration property in the Captcha customization code sample (the Captcha code textbox label is pronounced, not the Captcha sound icon label)
+-> Changed the Captcha customization sample to log custom BotDetect client-side events on the form instead of displaying message boxes
+
+
+v3.0.Beta1    (Release date: 2013 May 20)
+-------------------------------------------------------------------------------
+-> Implemented multi-language Captcha image generation & validation, supporting various Unicode character sets and RTL drawing (charsets: Latin, Cyrillic, Greek, Hebrew, Arabic, Devanagari, Hangul, Katakana, Hiragana, Han Simplified, Han Traditional, Bopomofo)
+-> Implemented multi-language Captcha audio generation, using individual language pronunciation packages downloadable separately from the main Captcha library
+-> Improved Captcha library ease of deployment: changed Captcha library paths to work by default on servers configured to lowercase all request paths on case-sensitive file-systems (e.g. using RewriteRule . ${lc:%{REQUEST_URI}} with Apache on Linux)
+-> Simplified Captcha library download package folder names ("CaptchaLibrary" -> "lib", "WebApp" -> "samples")
+-> Improved Captcha library compatibility: renamed all internal BotDetect classes and variables with "LBD_" prefixes to reduce probability of name clash with 3rd party libraries and user code even when running PHP 5.2.x
+-> Fixed a bug with Captcha image Http headers not being set properly when PHP output buffering is disabled (output_buffering = Off in php.ini)
+-> Fixed a bug with Captcha images containing unreadable characters in older PHP 5.2.x releases
+-> Fixed a bug with the Chess3D image style returning blank images in older PHP 5.2.x releases
+-> Improved Captcha audio usability in browsers supporting Html5 Wav audio by keeping the sound icon disabled until Captcha playback ends
+-> Improved the BotDetect layout stylesheet to avoid slight Captcha image and icon movement when they are selected using the keyboard
+-> Improved handling of invalid Captcha Http requests sent by some bots (with &amp;amp;amp;-style constructs in the querystring)
+-> Improved usability of BotDetect code samples: display user-friendly errors if GD or mbstring are missing
+-> Added remote script functionality intended for statistics collection and proof-of-work confirmation (work in progress)
+-> Allowed Captcha help link text configuration for free version users
+
+
+v3.0.Alpha4    (Release date: 2013 Feb 18)
+-------------------------------------------------------------------------------
+-> Fixed a bug in Captcha drawing code causing images with width:height ratios significantly different than the Captcha code length to contain black rectangles and possibly missing characters in the right half of the Captcha image
+-> Improved appearance and readability of Captcha text drawn for all ImageStyles
+-> Fixed a bug with Captcha sound not playing on Android 4.0+ devices
+-> Fixed a bug with Captcha sound not playing on iOS 6.0+ devices
+-> Fixed a bug with the Captcha client-side initialization not triggering in the jQuery ready() handler when jQuery.noConflict() is used
+-> Fixed a bug with automatic expired Captcha reloading only triggering once
+-> Fixed a bug with the help link mode not defaulting to HelpLinkMode::Image in licensed copies of BotDetect
+-> Improved usability of automatic expired Captcha reloading: the reload icon will now be disabled after the automatic reload time-outs, to prevent Captcha generation with an expired Session
+-> Improved configurability of the Captcha tabindex setting: -1 is now a special value that will disable tabbing over Captcha elements in most browsers
+-> Improved configurability of the Captcha persistence medium: user persistence functions can now be declared outside the base CaptchaConfig.php file and specified by name
+-> Improved configurability of the Captcha handler Url: base paths including a query string are now allowed
+
+
+v3.0.Alpha3    (Release date: 2012 Nov 05)
+-------------------------------------------------------------------------------
+-> Implemented Captcha sound functionality for Captcha accessibility
+-> Increased the average size of text in Captcha images to increase Captcha readability
+-> Implemented the option to easily disable certain Captcha image or sound styles purely through Captcha configuration
+-> Added the PHP jQuery Ajax contact form Captcha code sample to the Captcha library download package
+-> Fixed a bug in the BotDetect layout CSS causing the Reload icon to not be hidden for clients with JavaScript disabled
+-> Fixed a bug with automatic expired Captcha image reloading executing multiple times after multiple manual Reload icon clicks (only a single JavaScript timeout is set at a time now)
+-> Changed JavaScript user input case adjustment to auto-uppercase input instead of auto-lowercasing it, since all current Captcha image styles use uppercase characters; updated all related configuration settings
+-> Fixed a bug with automatic user input case adjustment resulting in incorrect caret positioning for iPad users
+-> Added the "LBD_ProgressIndicator" CSS class to the Captcha reload progress indicator for easier styling
+-> Decreased height of the license-restricted link below Captcha images generated by the Free version of BotDetect from 15px to 10px; fixed link appearance (color scheme and font selection) to make it readable at the new size
+-> Improved configurability of the Captcha help link (instead of completely removing it from licensed versions of BotDetect), allowing choice between adding it to the Captcha image (HelpLinkMode::Image) or below it (HelpLinkMode::Text); Free version users can also use these settings, but can not turn the link off completely like licensed users can
+
+
+v3.0.Alpha2		(Release date: 2012 Jun 19)
+-------------------------------------------------------------------------------
+-> Reorganized internal Captcha library dependencies to allow including the Captcha library in multiple websites from a central location
+-> Separated private and public library resources to allow independent deployment and security settings
+-> The BotDetect layout stylesheet is no longer automatically included by the "BotDetect.php" file, to allow more complex integration scenarios (multiple websites, various PHP frameworks etc.)
+-> Changed the format of the "BotDetect/CaptchaConfig.php" file to use a single global object for easier reuse and customization, implemented the "CaptchaConfiguration" helper for configuration settings access, added a new config section for Url settings
+-> Fixed a bug with Captcha code length randomization using the "CaptchaRandomization" helper; implemented the the Captcha randomization code sample
+-> Fixed a bug with the default "BotDetect/CaptchaConfig.php" configuration file not randomizing the Captcha image style
+-> Implemented BotDetect Captcha code filtering and the Captcha code filtering code sample
+-> Fixed a bug with the Captcha persistence code (taking into account that unserialize() returns "false" when loading fails; the code incorrectly checked for "null")
+-> Fixed a bug with Captcha color scheme customization not interpreting named Html colors (e.g. "Red") correctly
+-> Fixed a bug with the Captcha tab index setting not applying to the Captcha sound icon
+-> Implemented "UseHorizontalIcons" and "UseSmallIcons" instance properties of the Captcha object that allow Captcha icon layout customization
+-> Fixed a bug with the BotDetect client-side script throwing "reloadLink is null" errors when Captcha reloading is disabled
+-> Fixed a bug with the BotDetect client-side initialization not working when the Captcha is shown inside a jQuery dialog
+-> Implemented built-in BotDetect Ajax Captcha validation and the Ajax Captcha validation code sample
+-> Improved ease of accessing the BotDetect client-side object in user scripts by referencing it through the custom "Captcha" property of the DOM element registered as the Captcha code user input field (through the "UserInputID" property of the server-side Captcha object)
+-> Minor client-side tweaks: added the "InstanceId" client-side object property for easier custom validation; replaced the "InputElement" client-side object property with the "GetInputElement()" function call to avoid circular references (and the possible memory leaks)
+-> Implemented additional PHP Captcha code samples demonstrating BotDetect integration and Captcha options: Php Login Form Captcha Sample, Php jQuery Validation Captcha Sample, Php Multiple Captchas Sample, Captcha Customization Sample
+-> Improved the BotDetect Features Demo: randomize Captcha image style by default, fixed a bug with custom color drop-down lists not remembering selected values
+-> Removed the help link from Captcha images to prevent accidental clicks and navigation issues for mobile visitors
+-> Added a license-restricted link to the bottom 15px of every Captcha image generated by the Free version of BotDetect
+-> Added a BotDetect trademark to Captcha images generated by the Free version of the library
+
+
+v3.0.Alpha1		(Release date: 2012 Feb 06)
+-------------------------------------------------------------------------------
+-> First alpha release, implementing basic Captcha image generation and validation

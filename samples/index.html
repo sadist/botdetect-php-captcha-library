@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>BotDetect 3 PHP CAPTCHA Library WebApp Index</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, follow, noodp" />
+	<style type="text/css"><!--
+body {
+  background-color: #e8e9f0;
+  font-family: Verdana;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 20px auto;
+  padding: 10px 10px 40px 20px;
+  width: 700px;
+  color: #202020;
+}
+
+h1 {
+  font-family: Tahoma;
+  font-size: 21px;
+  line-height: 24px;
+  font-weight: normal;
+  margin: 15px 0 18px 0;
+  padding: 0; 
+}
+  
+h2 {
+  font-size: 15px; 
+  font-family: Verdana;
+  font-size: 16px;
+  margin: 42px 0 9px 0;
+  padding: 0;
+  color: #202020;
+}
+
+h3 {
+  margin: 9px 0 6px 0;
+  padding: 0;
+  font-family: Tahoma;
+  font-size: 14px;
+  font-variant: small-caps;
+}
+
+fieldset {
+  background-color: #EEEEFF;
+  padding: 3px 12px 10px 12px;
+  margin: 11px 11px 21px 11px;
+  border: 1px solid #ccd;
+  border-bottom: 1px solid #bbc;
+  border-right: 1px solid #bbc;
+  width: 640px !important;
+  display: block;
+}
+
+legend {
+  padding: 2px 7px;
+  margin: 0;
+  color: #999999;
+  font-size: 13px;
+}
+
+ul {
+  margin: 0 0 0 30px;
+  padding: 0 0 5px 0;
+}
+
+ul li {
+  margin: 3px 0; 
+}
+
+li p {
+  margin: 0;
+  padding: 0;
+}
+
+ul li ul {
+  margin: 0 0 15px 0;
+  padding: 0 0 0 30px;
+}
+
+code {
+  font-size: 15px;
+}
+
+.note {
+  margin: 10px 10px 20px 10px;
+  width: 310px;
+}
+
+.note p {
+  font-size: 12px;
+}
+
+#notes {
+  position: absolute;
+  top: 15px;
+  left: 455px;
+}
+
+p.toplink {
+  margin: -9px 25px 9px 0;
+  padding: 0;
+  font-size: 12px;
+  text-align: right;
+  clear: both !important;
+}
+
+a:link {
+  /*font-family: Arial;
+  font-size: 14px;*/
+  /*font-weight: bolder;*/
+  color: #2763cc;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #5070b0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2862cc;
+  text-decoration: underline;
+}
+
+	--></style>
+</head>
+<body id="top">
+
+	<h1>BotDetect CAPTCHA PHP Code Samples &amp; Demos</h1>
+	
+	<p>This is an overview of code samples and demos included with the BotDetect 3 PHP CAPTCHA Library.</p>
+  
+  <br />
+  <ul>
+    <li><a href="#demos">BotDetect Captcha demos</a></li>
+    <li><a href="#php_integration_samples">BotDetect PHP Captcha integration samples</a></li>
+    <li><a href="#cakephp_integration_samples">BotDetect CakePHP Captcha integration samples</a></li>
+    <li><a href="#codeigniter_integration_samples">BotDetect CodeIgniter Captcha integration samples</a></li>
+    <li><a href="#configuration_samples">BotDetect PHP Captcha configuration samples</a></li>
+  </ul>
+	
+	<h2 id="demos">BotDetect CAPTCHA Demos</h2>
+	<p>Demo forms demonstrate various BotDetect Captcha features and options.</p>
+	
+	<fieldset>
+		<h3>BotDetect Captcha Features Demo</h3>
+		<p>This demo allows you to easily experiment with various BotDetect parameters and their combinations, so you can see how powerful and customizable BotDetect Captcha is.</p>
+		<ul>
+			<li><a target="_blank" href="botdetect_features_demo/index.php">Run the demo</a></li>
+		</ul>
+	</fieldset>
+	
+  <p class="toplink"><a href="#top" title="BotDetect CAPTCHA PHP Code Samples &amp; Demos">[back to top]</a></p>
+  
+  
+	<h2 id="php_integration_samples">BotDetect PHP CAPTCHA Integration Samples</h2>
+	<p>These code samples show how to integrate BotDetect in your PHP applications.</p>
+	
+	<fieldset>
+		<h3>Php Basic Captcha Code Sample</h3>
+		<p>This code sample shows the most basic source code required to protect an PHP form with BotDetect Captcha and validate the user input.</p> 
+		<p>It can be used as a starting point when you are first learning how to use BotDetect.</p>
+		<ul>
+			<li><a target="_blank" href="php_basic_captcha_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+	
+	<fieldset>
+		<h3>Php Form Captcha Code Sample</h3>
+		<p>This code sample shows how to add BotDetect Captcha protection to a typical PHP form.</p> 
+		<p>Captcha validation is integrated with other form fields validation, and only submissions that meet all validation criteria are accepted.</p> 
+    <p>If the Captcha is sucessfully solved but other field validation fails, the Captcha is hidden since the users have already proven they are human.</p>
+		<p>This kind of validation could be used on various types of public forms which accept messages, and are at risk of unwanted automated submissions.</p> 
+		<p>For example, it could be used to ensure bots can't submit anything to a contact form, add guestbook entries, blog post comments or anonymous message board / forum replies.</p> 
+		<ul>
+			<li><a target="_blank" href="php_form_captcha_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+  
+  <fieldset>
+		<h3>Php Login Form Captcha Code Sample</h3>
+		<p>This code sample shows how to add BotDetect Captcha validation to simple PHP login forms.</p> 
+    <p>To prevent bots from trying to guess the login info by brute force submission of a large number of common values, the visitor first has to prove they are human (by solving the Captcha), and only then is their username and password submission checked against the authentication data store.</p> 
+    <p>Also, if they enter an invalid username + password combination three times, they have to solve the Captcha again. This prevents attempts in which the attacker would first solve the Captcha themselves, and then let a bot brute-force the authentication info.</p> 
+		<ul>
+			<li><a target="_blank" href="php_login_form_captcha_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+  
+  <fieldset>
+		<h3>Php jQuery Validation Captcha Code Sample</h3>
+		<p>This code sample shows how to integrate BotDetect PHP Captcha validation with <a target="_blank" href="http://jqueryvalidation.org/validate">jQuery Validation</a> client-side form validation.</p>
+    <p>It uses the Captcha Form Sample as a starting point, and adds client-side jQuery Validation rules for all form fields.</p>
+    <p>Client-side validation is not secure by itself (it can be bypassed trivially), so the sample also shows how the protected form action must always be secured by server-side Captcha validation first, and use client-side validation only to improve the user experience.</p>
+		<ul>
+			<li><a target="_blank" href="php_jquery_validation_captcha_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+  
+  <fieldset>
+		<h3>Php jQuery Ajax Contact Form Captcha Code Sample</h3>
+    <p>This code sample demonstrates the use of BotDetect Captcha in a scenario using jQuery and AJAX to validate individual form fields against a PHP server backend. The approach in this scenario is useful in situations where duplication of server-side validation routines on the client side is impractical.</p>
+    <p>To make the sample brief and concrete, it is implemented as an AJAX contact form with Captcha protection.</p>
+    <p>The sample shows proper steps to be taken when validating the Captcha in various ways this scenario provides: be it partial validation or complete form validation and submission using AJAX; or server side validation only when Javascript is disabled.</p>
+    <ul>
+			<li><a target="_blank" href="php_jquery_contact_form_captcha_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+  
+  <fieldset>
+		<h3>Php Built-In Ajax Captcha Validation Code Sample</h3>
+		<p>This code sample shows how to properly perform Ajax Captcha validation using built-in BotDetect client-side functionality, which doesn't require any 3rd party Ajax frameworks.</p>
+    <p>It uses the Captcha Form Sample as a starting point, and adds client-side validation of all form fields.</p>
+    <p>Ajax Captcha validation improves the user experience by reducing Captcha validation response time, giving users much faster feedback about the validation result.</p>
+    <p>Client-side validation is not secure by itself (it can be bypassed trivially), so the sample also shows how the protected form action must always be secured by server-side Captcha validation as well.</p>
+    <p>In case of any Ajax errors or timeouts, the sample simply falls back to full form posting and server-side Captcha validation.</p>
+		<ul>
+			<li><a target="_blank" href="captcha_ajax_validation_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+	
+	<fieldset>
+		<h3>Php Multiple Captchas Sample</h3>
+		<p>This code sample shows how to have multiple Captcha-protected pages within the same PHP website.</p>
+    <p>As long as the Captcha instances have different names (<code>Captcha1</code> and <code>Captcha2</code> in the sample), they can have completely separate settings and won't interfere with each other's validation.</p>
+    <p>Even if a user opens the same page in multiple browser tabs, each tab will properly validate the shown Captcha code. </p>
+		<ul>
+			<li><a target="_blank" href="php_multiple_captchas_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+	
+  <p class="toplink"><a href="#top" title="BotDetect CAPTCHA PHP Code Samples &amp; Demos">[back to top]</a></p>
+  
+  
+  
+  <h2 id="cakephp_integration_samples">BotDetect CakePHP Captcha Integration Samples</h2>
+	<p>These code samples show how to integrate BotDetect in your CakePHP applications. To keep the basic BotDetect Captcha library download reasonably small, CakePHP Captcha integration code and samples are a separate download available from <a target="_blank" href="http://captcha.com/doc/php/howto/cakephp-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=3.0.0">the BotDetect CakePHP Captcha page</a>.</p>
+	
+	<fieldset>
+		<h3>CakePhp Basic BotDetect Captcha Sample</h3>
+		<p>This code sample illustrates the most basic form of BotDetect PHP Captcha protection in CakePHP MVC applications.</p>
+    <p>Alongside the Captcha image, the user is provided with an input field to retype the displayed characters. Depending on if the Captcha code entered matches the displayed one or not, a message stating the validation result is shown on the form.</p>
+    <p>The simple code showing the message in this sample would of course be replaced with useful form processing code in a real world scenario. </p>
+		<ul>
+			<li><a target="_blank" href="http://captcha.com/doc/php/samples/cakephp-basic-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=3.0.0">Read more about the code sample online</a></li>
+		</ul>
+	</fieldset>
+  
+  <fieldset>
+		<h3>CakePhp Form Model Validation BotDetect Captcha Sample</h3>
+    <p>This code sample shows how to integrate BotDetect PHP Captcha validation and <a href="http://book.cakephp.org/2.0/en/models/data-validation.html" target="_blank" >CakePHP data validation</a> functionality. It uses Cake's <a target="_blank" href="http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html"><code>FormHelper</code></a> and Model validation, which provide a lot of out-the-box functionality when used together.</p>
+		<p>The sample is based around a contact form which sends email if the user input is considered valid &ndash; a likely real world scenario for Captcha protection integration.</p>
+    <p>To keep the sample brief, it doesn't use a database backend. Still, this type of Model integration is ideal for protecting database-driven forms that take advantage of the <a href="http://book.cakephp.org/2.0/en/models.html" target="_blank">CakePHP Model infrastructure</a>.</p>
+		<ul>
+			<li><a target="_blank" href="http://captcha.com/doc/php/samples/cakephp-form-model-validation-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=3.0.0">Read more about the code sample online</a></li>
+		</ul>
+	</fieldset>
+  
+  <p class="toplink"><a href="#top" title="BotDetect CAPTCHA PHP Code Samples &amp; Demos">[back to top]</a></p>
+  
+  
+  <h2 id="codeigniter_integration_samples">BotDetect CodeIgniter Captcha Integration Samples</h2>
+	<p>These code samples show how to integrate BotDetect in your CodeIgniter applications. To keep the basic BotDetect Captcha library download reasonably small, CodeIgniter Captcha integration code and samples are a separate download available from <a target="_blank" href="http://captcha.com/doc/php/howto/codeigniter-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=3.0.0">the BotDetect CodeIgniter Captcha page</a>.</p>
+	
+	<fieldset>
+		<h3>CodeIgniter Basic BotDetect Captcha Sample</h3>
+		<p>This code sample illustrates the most basic form of BotDetect PHP Captcha protection in CodeIgniter MVC applications.</p>
+    <p>Alongside the Captcha image, the user is provided with an input field to retype the displayed characters. Depending on if the Captcha code entered matches the displayed one or not, a message stating the validation result is shown on the form.</p>
+    <p>The simple code showing the message in this sample would of course be replaced with useful form processing code in a real world scenario. </p>
+		<ul>
+			<li><a target="_blank" href="http://captcha.com/doc/php/samples/codeigniter-basic-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=3.0.0">Read more about the code sample online</a></li>
+		</ul>
+	</fieldset>
+  
+  <fieldset>
+		<h3>CodeIgniter Form Validation BotDetect Captcha Sample</h3>
+    <p>This code sample shows how to integrate BotDetect PHP Captcha validation and CodeIgniter form validation functionality. It uses the <a target="_blank" href="http://codeigniter.com/user_guide/helpers/form_helper.html">CodeIgniter Form helper</a> and the <a href="http://codeigniter.com/user_guide/libraries/form_validation.html" target="_blank">Form Validation library</a>.</p>
+		<p>The brief sample is based around a contact form which sends email if the user input is considered valid – a likely real world scenario for Captcha protection integration.</p>
+		<ul>
+			<li><a target="_blank" href="http://captcha.com/doc/php/samples/codeigniter-form-validation-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=3.0.0">Read more about the code sample online</a></li>
+		</ul>
+	</fieldset>
+  
+  <p class="toplink"><a href="#top" title="BotDetect CAPTCHA PHP Code Samples &amp; Demos">[back to top]</a></p>
+  
+  
+	<h2 id="configuration_samples">BotDetect PHP CAPTCHA Configuration Samples</h2>
+	<p>Captcha configuration code samples show how to use particular BotDetect Captcha options in your PHP applications.</p>
+	
+	<fieldset>
+		<h3>Php Captcha Code Filtering Sample</h3>
+		<p>This code sample shows how to use the new Captcha code filtering functionality added in BotDetect 3.0.</p>
+    <p>You can define rules about character sequences you want to avoid using in randomly generated Captcha codes and simply pass them to the Captcha library.</p>
+    <p>The <code>BotDetect/CaptchaConfig.php</code> file defines a simplified custom character set (using only <code>'A'</code>, <code>'B'</code>, <code>'C'</code> and <code>'D'</code>), which helps make the code filtering easier to track in action.</p>
+    <p>The <code>$LBD_CaptchaConfig->BannedSequences</code> setting in the same file shows how to create your own banned sequence definitions to suit your application needs. The following sequences will never appear in Captcha codes generated in the sample: <code>D</code>, <code>AA</code>, <code>BB</code>, <code>CC</code>, <code>ABC</code>, <code>BCA</code>, <code>CAB</code>.</p>
+		<ul>
+			<li><a target="_blank" href="captcha_code_filtering_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+	
+	<fieldset>
+		<h3>Php Captcha Customization Sample</h3>
+		<p>This code sample shows how to customize BotDetect Captcha behavior and appearance.</p>
+    <p>BotDetect 3.0 allows user-defined customization of many Captcha options through a special <code>CaptchaConfig.php</code> configuration file; some customizations also require page source changes.</p>
+    <p>Shown customizations include: Captcha image color scheme, sound &amp; reload icons and their tooltips, custom client-side handlers for BotDetect actions such as sound playing and Captcha reloading (resulting in simple debug messages on icon clicks in this sample), ...</p>
+    <p>The <code>CaptchaConfig.php</code> file used in This code sample contains detailed descriptions and explanations of the many customizable options.</p>
+    <p>You can then use chosen customization options to configure BotDetect to precisely match your application requirements.</p>
+		<ul>
+			<li><a target="_blank" href="captcha_customization_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+	
+	<fieldset>
+		<h3>Php Captcha Randomization Sample</h3>
+		<p>This code sample shows how to easily randomize various Captcha library parameters, beyond the basic image and sound style randomization used by default.</p> 
+    <p>Randomly using different Captcha image and sound generation algorithms and other parameter values (such as code length and style) can significantly improve the Captcha security.</p> 
+    <p>This is the recommended approach to Captcha property setting, since it takes full advantage of the 60 Captcha image and 10 Captcha sound generation algorithms shipped with BotDetect, as well as built-in randomization features.</p>
+    <p>Setting <code>Captcha</code> control properties in the <code>CaptchaConfig.php</code> file also reduces the amount of Session state used by the library.</p>
+		<ul>
+			<li><a target="_blank" href="captcha_randomization_sample/index.php">Run the code sample</a></li>
+		</ul>
+	</fieldset>
+  
+  <p class="toplink"><a href="#top" title="BotDetect CAPTCHA PHP Code Samples &amp; Demos">[back to top]</a></p>
+	
+</body>

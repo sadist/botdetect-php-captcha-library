@@ -1,0 +1,29 @@
+{
+    "name": "captcha-com/captcha",
+    "description": "BotDetect 3 PHP Captcha Free composer package.",
+    "keywords": ["captcha"],
+    "homepage": "http://captcha.com",
+    "license": "Commercial",
+    "authors": [
+        {
+            "name": "BotDetect Captcha",
+            "email": "botdetect.support@captcha.com",
+            "homepage": "http://captcha.com"
+        }
+    ],
+    "support": {
+        "email": "botdetect.support@captcha.com",
+        "forum": "http://captcha.com/support"
+    },
+    "suggest": {
+        "captcha-com/laravel-captcha": "BotDetect 3 PHP Captcha integration for the Laravel framework."
+    },
+    "require": {
+        "php": ">=5.2.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.x-dev"
+        }
+    }
+}
