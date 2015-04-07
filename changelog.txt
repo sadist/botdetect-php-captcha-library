@@ -10,6 +10,11 @@ If you want to stay up-to-date with all new BotDetect releases, subscribe to:
 -> http://captcha.com/feeds/botdetect_captcha_release_notes.atom
 
 
+v3.0.1   (Release date: 2015 Apr 07)
+-------------------------------------------------------------------------------
+-> Fixed a bug resulting with missing Http headers when handling invalid Captcha Http requests
+
+
 v3.0.0   (Release date: 2014 Oct 15)
 -------------------------------------------------------------------------------
 -> Fixed a bug resulting with errors when using Non-Latin based locales for generating Captcha challenges

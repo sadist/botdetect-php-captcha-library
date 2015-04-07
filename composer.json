@@ -13,9 +13,12 @@
     ],
     "support": {
         "email": "botdetect.support@captcha.com",
-        "forum": "http://captcha.com/support"
+        "issues": "http://captcha.com/support",
+        "forum": "http://captcha.com/support",
+        "source": "http://captcha.com/php-captcha.html"
     },
     "suggest": {
+        "captcha-com/cakephp-captcha": "BotDetect 3 PHP Captcha integration for the CakePHP framework.",
         "captcha-com/laravel-captcha": "BotDetect 3 PHP Captcha integration for the Laravel framework."
     },
     "require": {

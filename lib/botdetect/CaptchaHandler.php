@@ -11,6 +11,8 @@ try {
   LBD_HttpHelper::FixEscapedQuerystrings();
   LBD_HttpHelper::CheckForIgnoredRequests();
 
+  header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet');
+    
   // There are several Captcha commands accessible through the Http interface;
   // first we detect which of the valid commands is the current Http request for.
   if (!array_key_exists('get', $_GET) || !LBD_StringHelper::HasValue($_GET['get'])) {
@@ -31,8 +33,7 @@ try {
     default:
       LBD_HttpHelper::BadRequest('command');
       break;
-  }
-
+  }  
 } catch (Exception $e) {
   header('Content-Type: text/plain');
   echo $e->getMessage();
@@ -70,9 +71,6 @@ function GetImage() {
   // we don't support content chunking, since image files
   // are regenerated randomly on each request
   header('Accept-Ranges: none');
-
-  // disallow audio file search engine indexing
-  header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet');
 
   // image generation
   $rawImage = $captcha->GetImage($instanceId);
@@ -126,8 +124,6 @@ function GetSound() {
     $downloadId = LBD_CryptoHelper::GenerateGuid();
     header("Content-Disposition: attachment; filename=captcha_{$downloadId}.wav");
   }
-  
-  header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet'); // disallow audio file search engine indexing
   
   
   if (DetectIosRangeRequest()) { // iPhone/iPad sound issues workaround: chunked response for iOS clients
@@ -269,8 +265,7 @@ function GetValidationResult() {
 
   // response MIME type & headers
   header('Content-Type: text/javascript');
-  header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet');
-
+  
   // JSON-encoded validation result
   $result = false;
    if (isset($userInput) && (isset($instanceId))) {
