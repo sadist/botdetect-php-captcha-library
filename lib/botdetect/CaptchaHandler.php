@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (is_callable('session_start')) { session_start(); }
 
 
 while (ob_get_length()) {
@@ -192,15 +192,15 @@ function GenerateSoundData($p_Captcha, $p_InstanceId) {
 }
 
 function SaveSoundData($p_InstanceId, $p_SoundBytes) {
-  LBD_Persistence_Save("LBD_Cached_SoundData_" . $p_InstanceId, $p_SoundBytes);
+  LBD_Persistence_Save('LBD_Cached_SoundData_' . $p_InstanceId, $p_SoundBytes);
 }
 
 function LoadSoundData($p_InstanceId) {
-   return LBD_Persistence_Load("LBD_Cached_SoundData_" . $p_InstanceId);
+   return LBD_Persistence_Load('LBD_Cached_SoundData_' . $p_InstanceId);
 }
 
 function ClearSoundData($p_InstanceId) {
-  LBD_Persistence_Clear("LBD_Cached_SoundData_" . $p_InstanceId);
+  LBD_Persistence_Clear('LBD_Cached_SoundData_' . $p_InstanceId);
 }
 
 
@@ -313,7 +313,7 @@ function GetUserInput() {
   } else {
     // jQuery validation support, the input key may be just about anything,
     // so we have to loop through fields and take the first unrecognized one
-    $recognized = array('get', 'c', 't');
+    $recognized = array('get', 'c', 't', 'd');
     foreach($_GET as $key => $value) {
       if (!in_array($key, $recognized)) {
         $input = $value;

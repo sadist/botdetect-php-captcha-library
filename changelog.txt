@@ -5,9 +5,15 @@ BotDetect PHP CAPTCHA Library release notes
 For latest BotDetect PHP library version information, please visit: 
 -> http://captcha.com/doc/php/captcha-release-notes.html
 
-If you want to stay up-to-date with all new BotDetect releases, subscribe to:
--> http://captcha.com/feeds/botdetect_captcha_release_notes.rss or
--> http://captcha.com/feeds/botdetect_captcha_release_notes.atom
+
+
+v3.0.2   (Release date: 2015 Oct 13)
+-------------------------------------------------------------------------------
+-> Added rel="nofollow" to helplink
+-> Added rel="nofollow" to audio Captcha link
+-> Changed the helplink <a href> to always show to captcha.com/captcha.html?integration ignoring the locale used
+-> Fixed a bug when validation result was always FALSE after submitting incorrect Captcha in some corner-case javascript-based usage scenarios
+-> Fixed a bug resulting with BotDetect Library throwing an error when used in PHP configurations that were built using "--disable-session" option
 
 
 v3.0.1   (Release date: 2015 Apr 07)
