@@ -19,7 +19,8 @@
     },
     "suggest": {
         "captcha-com/cakephp-captcha": "BotDetect 3 PHP Captcha integration for the CakePHP framework.",
-        "captcha-com/laravel-captcha": "BotDetect 3 PHP Captcha integration for the Laravel framework."
+        "captcha-com/laravel-captcha": "BotDetect 3 PHP Captcha integration for the Laravel framework.",
+        "captcha-com/symfony-captcha-bundle": "BotDetect 3 PHP Captcha integration for the Symfony framework."
     },
     "require": {
         "php": ">=5.2.1"
