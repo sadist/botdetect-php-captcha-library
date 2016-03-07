@@ -1,6 +1,6 @@
 {
     "name": "captcha-com/captcha",
-    "description": "BotDetect 3 PHP Captcha Free composer package.",
+    "description": "BotDetect 4 PHP Captcha Free composer package.",
     "keywords": ["captcha"],
     "homepage": "http://captcha.com/php-captcha.html",
     "license": "Commercial",
@@ -18,16 +18,16 @@
         "source": "http://captcha.com/php-captcha.html"
     },
     "suggest": {
-        "captcha-com/cakephp-captcha": "BotDetect 3 PHP Captcha integration for the CakePHP framework.",
-        "captcha-com/laravel-captcha": "BotDetect 3 PHP Captcha integration for the Laravel framework.",
-        "captcha-com/symfony-captcha-bundle": "BotDetect 3 PHP Captcha integration for the Symfony framework."
+        "captcha-com/cakephp-captcha": "BotDetect 4 PHP Captcha integration for the CakePHP framework.",
+        "captcha-com/laravel-captcha": "BotDetect 4 PHP Captcha integration for the Laravel framework.",
+        "captcha-com/symfony-captcha-bundle": "BotDetect 4 PHP Captcha integration for the Symfony framework."
     },
     "require": {
         "php": ">=5.2.1"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.x-dev"
+            "dev-master": "4.x-dev"
         }
     }
 }

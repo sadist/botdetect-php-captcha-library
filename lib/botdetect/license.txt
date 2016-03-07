@@ -1,4 +1,4 @@
-﻿BotDetect CAPTCHA 3.0 End User License Agreement (the "Agreement")
+﻿BotDetect CAPTCHA 4.0 End User License Agreement (the "Agreement")
 
 Notice to user:
 This is a legal document between you (the "Licensee"), either an individual or a legal entity, and Captcha, Inc (the "Vendor").

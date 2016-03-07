@@ -1,8 +1,4 @@
-<?php // include BotDetect PHP CAPTCHA Library v4.0.0
-
-// Copyright © Captcha, Inc. (formerly Lanapsoft, Inc.) 2004-2016. All rights reserved.
-// BotDetect, BotDetect CAPTCHA, Lanap, Lanap CAPTCHA, Lanap BotDetect, Lanap BotDetect CAPTCHA, Lanapsoft, Lanapsoft CAPTCHA, Lanapsoft BotDetect, Lanapsoft BotDetect CAPTCHA, and Lanap Software are trademarks or registered trademarks of Captcha, Inc.
-
+<?php // include BotDetect PHP CAPTCHA Library
 
 // PHP 5.2.x compatibility workaround
 if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }
@@ -11,10 +7,10 @@ if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }
 // 1. define BotDetect paths
 
 // physical path to Captcha library files (the BotDetect folder)
-$BDC_Include_Path = __DIR__ . '/botdetect/';
+$BDC_Include_Path = __DIR__ . '/../../lib/botdetect/';
 
 // BotDetect Url prefix (base Url of the BotDetect public resources)
-$BDC_Url_Root = 'botdetect/public/';
+$BDC_Url_Root = '../../lib/botdetect/public/';
 
 // physical path to the folder with the (optional!) config override file
 $BDC_Config_Override_Path = __DIR__;
@@ -73,7 +69,7 @@ function BDC_ApplyUserConfigOverride($CaptchaConfig, $CurrentCaptchaId) {
 
 // 4. determine is this file included in a form/class, or requested directly
 $BDC_RequestFilename = basename($_SERVER['REQUEST_URI']);
-if (BDC_StringHelper::StartsWith($BDC_RequestFilename, 'botdetect.php')) {
+if (BDC_StringHelper::StartsWith($BDC_RequestFilename, 'custom-captcha-request-handler.php')) {
   // direct access, proceed as Captcha handler (serving images and sounds)
   require_once(BDC_INCLUDE_PATH . 'CaptchaHandler.php');
 } else {

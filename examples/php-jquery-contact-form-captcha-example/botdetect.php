@@ -1,9 +1,5 @@
 <?php // include BotDetect PHP CAPTCHA Library v4.0.0
 
-// Copyright © Captcha, Inc. (formerly Lanapsoft, Inc.) 2004-2016. All rights reserved.
-// BotDetect, BotDetect CAPTCHA, Lanap, Lanap CAPTCHA, Lanap BotDetect, Lanap BotDetect CAPTCHA, Lanapsoft, Lanapsoft CAPTCHA, Lanapsoft BotDetect, Lanapsoft BotDetect CAPTCHA, and Lanap Software are trademarks or registered trademarks of Captcha, Inc.
-
-
 // PHP 5.2.x compatibility workaround
 if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }
 
@@ -11,10 +7,10 @@ if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }
 // 1. define BotDetect paths
 
 // physical path to Captcha library files (the BotDetect folder)
-$BDC_Include_Path = __DIR__ . '/botdetect/';
+$BDC_Include_Path = __DIR__ . '/../../lib/botdetect/';
 
 // BotDetect Url prefix (base Url of the BotDetect public resources)
-$BDC_Url_Root = 'botdetect/public/';
+$BDC_Url_Root = '../../lib/botdetect/public/';
 
 // physical path to the folder with the (optional!) config override file
 $BDC_Config_Override_Path = __DIR__;

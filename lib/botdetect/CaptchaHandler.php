@@ -8,32 +8,31 @@ while (ob_get_length()) {
 ob_start();
 try {
 
-  LBD_HttpHelper::FixEscapedQuerystrings();
-  LBD_HttpHelper::CheckForIgnoredRequests();
+  BDC_HttpHelper::FixEscapedQuerystrings();
+  BDC_HttpHelper::CheckForIgnoredRequests();
 
-  header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet');
-    
   // There are several Captcha commands accessible through the Http interface;
   // first we detect which of the valid commands is the current Http request for.
-  if (!array_key_exists('get', $_GET) || !LBD_StringHelper::HasValue($_GET['get'])) {
-    LBD_HttpHelper::BadRequest('command');
+  if (!array_key_exists('get', $_GET) || !BDC_StringHelper::HasValue($_GET['get'])) {
+    BDC_HttpHelper::BadRequest('command');
   }
-  $commandString = LBD_StringHelper::Normalize($_GET['get']);
-  $command = LBD_CaptchaHttpCommand::FromQuerystring($commandString);
+  $commandString = BDC_StringHelper::Normalize($_GET['get']);
+  $command = BDC_CaptchaHttpCommand::FromQuerystring($commandString);
   switch ($command) {
-    case LBD_CaptchaHttpCommand::GetImage:
+    case BDC_CaptchaHttpCommand::GetImage:
       GetImage();
       break;
-    case LBD_CaptchaHttpCommand::GetSound:
+    case BDC_CaptchaHttpCommand::GetSound:
       GetSound();
       break;
-    case LBD_CaptchaHttpCommand::GetValidationResult:
+    case BDC_CaptchaHttpCommand::GetValidationResult:
       GetValidationResult();
       break;
     default:
-      LBD_HttpHelper::BadRequest('command');
+      BDC_HttpHelper::BadRequest('command');
       break;
-  }  
+  }
+
 } catch (Exception $e) {
   header('Content-Type: text/plain');
   echo $e->getMessage();
@@ -49,20 +48,20 @@ function GetImage() {
   // saved data for the specified Captcha object in the application
   $captcha = GetCaptchaObject();
   if (is_null($captcha)) {
-    LBD_HttpHelper::BadRequest('Captcha doesn\'t exist');
+    BDC_HttpHelper::BadRequest('Captcha doesn\'t exist');
   }
   
   // identifier of the particular Captcha object instance
   $instanceId = GetInstanceId();
   if (is_null($instanceId)) {
-    LBD_HttpHelper::BadRequest('Instance doesn\'t exist');
+    BDC_HttpHelper::BadRequest('Instance doesn\'t exist');
   }
 
   // image generation invalidates sound cache, if any  
   ClearSoundData($instanceId); 
 
   // response headers
-  LBD_HttpHelper::DisallowCache();
+  BDC_HttpHelper::DisallowCache();
 
   // MIME type
   $mimeType = $captcha->ImageMimeType;
@@ -72,9 +71,12 @@ function GetImage() {
   // are regenerated randomly on each request
   header('Accept-Ranges: none');
 
+  // disallow audio file search engine indexing
+  header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet');
+
   // image generation
   $rawImage = $captcha->GetImage($instanceId);
-  $captcha->Save(); // record generated Captcha code for validation
+  $captcha->SaveCodeCollection(); // record generated Captcha code for validation
   session_write_close();
 
   // output image bytes
@@ -90,30 +92,30 @@ function GetSound() {
 
   $captcha = GetCaptchaObject();
   if (is_null($captcha)) {
-    LBD_HttpHelper::BadRequest('Captcha doesn\'t exist');
+    BDC_HttpHelper::BadRequest('Captcha doesn\'t exist');
   }
   
   if (!$captcha->SoundEnabled) { // sound requests can be disabled with this config switch / instance property
-    LBD_HttpHelper::BadRequest('Sound disabled');
+    BDC_HttpHelper::BadRequest('Sound disabled');
   }
 
   $instanceId = GetInstanceId();
   if (is_null($instanceId)) {
-    LBD_HttpHelper::BadRequest('Instance doesn\'t exist');
+    BDC_HttpHelper::BadRequest('Instance doesn\'t exist');
   }
 
   $soundBytes = GetSoundData($captcha, $instanceId);
   session_write_close();
   
   if (is_null($soundBytes)) {
-    LBD_HttpHelper::BadRequest('Please reload the form page before requesting another Captcha sound');
+    BDC_HttpHelper::BadRequest('Please reload the form page before requesting another Captcha sound');
     exit;
   }
   
   $totalSize = strlen($soundBytes);
   
   // response headers
-  LBD_HttpHelper::SmartDisallowCache();
+  BDC_HttpHelper::SmartDisallowCache();
   
   $mimeType = $captcha->SoundMimeType;
   header("Content-Type: {$mimeType}");
@@ -121,9 +123,11 @@ function GetSound() {
   header('Content-Transfer-Encoding: binary');
 
   if (!array_key_exists('d', $_GET)) { // javascript player not used, we send the file directly as a download
-    $downloadId = LBD_CryptoHelper::GenerateGuid();
+    $downloadId = BDC_CryptoHelper::GenerateGuid();
     header("Content-Disposition: attachment; filename=captcha_{$downloadId}.wav");
   }
+  
+  header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet'); // disallow audio file search engine indexing
   
   
   if (DetectIosRangeRequest()) { // iPhone/iPad sound issues workaround: chunked response for iOS clients
@@ -138,7 +142,7 @@ function GetSound() {
     // end of sound playback, cleanup and tell AppleCoreMedia to stop requesting
     // invalid "bytes=rangeEnd-rangeEnd" ranges in an infinite(?) loop
     if ($rangeStart == $rangeEnd || $rangeEnd > $totalSize) {
-      LBD_HttpHelper::BadRequest('invalid byte range');
+      BDC_HttpHelper::BadRequest('invalid byte range');
     }
     
     $rangeBytes = substr($soundBytes, $rangeStart, $rangeSize);
@@ -187,20 +191,20 @@ function GetSoundData($p_Captcha, $p_InstanceId) {
 
 function GenerateSoundData($p_Captcha, $p_InstanceId) {
   $rawSound = $p_Captcha->GetSound($p_InstanceId);
-  $p_Captcha->Save(); // always record sound generation count
+  $p_Captcha->SaveCodeCollection(); // always record sound generation count
   return $rawSound;
 }
 
 function SaveSoundData($p_InstanceId, $p_SoundBytes) {
-  LBD_Persistence_Save('LBD_Cached_SoundData_' . $p_InstanceId, $p_SoundBytes);
+  BDC_Persistence_Save("BDC_Cached_SoundData_" . $p_InstanceId, $p_SoundBytes);
 }
 
 function LoadSoundData($p_InstanceId) {
-   return LBD_Persistence_Load('LBD_Cached_SoundData_' . $p_InstanceId);
+   return BDC_Persistence_Load("BDC_Cached_SoundData_" . $p_InstanceId);
 }
 
 function ClearSoundData($p_InstanceId) {
-  LBD_Persistence_Clear('LBD_Cached_SoundData_' . $p_InstanceId);
+  BDC_Persistence_Clear("BDC_Cached_SoundData_" . $p_InstanceId);
 }
 
 
@@ -209,9 +213,9 @@ function ClearSoundData($p_InstanceId) {
 function DetectIosRangeRequest() {
   $detected = false;
   if (array_key_exists('HTTP_X_PLAYBACK_SESSION_ID', $_SERVER) &&
-      LBD_StringHelper::HasValue($_SERVER['HTTP_X_PLAYBACK_SESSION_ID']) &&
+      BDC_StringHelper::HasValue($_SERVER['HTTP_X_PLAYBACK_SESSION_ID']) &&
       array_key_exists('HTTP_RANGE', $_SERVER) &&
-      LBD_StringHelper::HasValue($_SERVER['HTTP_RANGE'])) {
+      BDC_StringHelper::HasValue($_SERVER['HTTP_RANGE'])) {
     $detected = true;
   }
   return $detected;
@@ -220,7 +224,7 @@ function DetectIosRangeRequest() {
 function GetSoundByteRange() {
   // chunked requests must include the desired byte range
   $rangeStr = $_SERVER['HTTP_RANGE'];
-  if (!LBD_StringHelper::HasValue($rangeStr)) {
+  if (!BDC_StringHelper::HasValue($rangeStr)) {
     return;
   }
 
@@ -236,7 +240,7 @@ function DetectFakeRangeRequest() {
   $detected = false;
   if (array_key_exists('HTTP_RANGE', $_SERVER)) {
     $rangeStr = $_SERVER['HTTP_RANGE'];
-    if (LBD_StringHelper::HasValue($rangeStr) &&
+    if (BDC_StringHelper::HasValue($rangeStr) &&
         preg_match('/bytes=0-$/', $rangeStr)) {
       $detected = true;
     }
@@ -251,13 +255,13 @@ function GetValidationResult() {
   // saved data for the specified Captcha object in the application
   $captcha = GetCaptchaObject();
   if (is_null($captcha)) {
-    LBD_HttpHelper::BadRequest('captcha');
+    BDC_HttpHelper::BadRequest('captcha');
   }
 
   // identifier of the particular Captcha object instance
   $instanceId = GetInstanceId();
   if (is_null($instanceId)) {
-    LBD_HttpHelper::BadRequest('instance');
+    BDC_HttpHelper::BadRequest('instance');
   }
 
   // code to validate
@@ -265,12 +269,13 @@ function GetValidationResult() {
 
   // response MIME type & headers
   header('Content-Type: text/javascript');
-  
+  header('X-Robots-Tag: noindex, nofollow, noarchive, nosnippet');
+
   // JSON-encoded validation result
   $result = false;
    if (isset($userInput) && (isset($instanceId))) {
-    $result = $captcha->Validate($userInput, $instanceId, LBD_ValidationAttemptOrigin::Client);
-    $captcha->Save();
+    $result = $captcha->Validate($userInput, $instanceId, BDC_ValidationAttemptOrigin::Client);
+    $captcha->SaveCodeCollection();
   }
   session_write_close();
   
@@ -281,22 +286,22 @@ function GetValidationResult() {
 
 // gets Captcha instance according to the CaptchaId passed in querystring
 function GetCaptchaObject() {
-  $captchaId = LBD_StringHelper::Normalize($_GET['c']);
-  if (!LBD_StringHelper::HasValue($captchaId) ||
-      !LBD_CaptchaBase::IsValidCaptchaId($captchaId)) {
+  $captchaId = BDC_StringHelper::Normalize($_GET['c']);
+  if (!BDC_StringHelper::HasValue($captchaId) ||
+      !BDC_CaptchaBase::IsValidCaptchaId($captchaId)) {
     return;
   }
 
-  $captcha = new LBD_CaptchaBase($captchaId);
+  $captcha = new BDC_CaptchaBase($captchaId);
   return $captcha;
 }
 
 
 // extract the exact Captcha code instance referenced by the request
 function GetInstanceId() {
-  $instanceId = LBD_StringHelper::Normalize($_GET['t']);
-  if (!LBD_StringHelper::HasValue($instanceId) ||
-      !LBD_CaptchaBase::IsValidInstanceId($instanceId)) {
+  $instanceId = BDC_StringHelper::Normalize($_GET['t']);
+  if (!BDC_StringHelper::HasValue($instanceId) ||
+      !BDC_CaptchaBase::IsValidInstanceId($instanceId)) {
     return;
   }
   return $instanceId;
@@ -309,7 +314,7 @@ function GetUserInput() {
 
   if (isset($_GET['i'])) {
     // BotDetect built-in Ajax Captcha validation
-    $input = LBD_StringHelper::Normalize($_GET['i']);
+    $input = BDC_StringHelper::Normalize($_GET['i']);
   } else {
     // jQuery validation support, the input key may be just about anything,
     // so we have to loop through fields and take the first unrecognized one
