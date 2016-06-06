@@ -1,4 +1,4 @@
-<?php // include BotDetect PHP CAPTCHA Library v4.0.0
+<?php // include BotDetect PHP CAPTCHA Library v4.1.0
 
 // PHP 5.2.x compatibility workaround
 if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }

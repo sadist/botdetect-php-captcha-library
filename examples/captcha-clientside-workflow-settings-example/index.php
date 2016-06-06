@@ -127,7 +127,7 @@
         <p>Client-side Captcha object initialization, Captcha image reloading, Captcha sound playback, built-in Captcha Ajax validation, and Captcha help link clicks all have a number of related client-side "events" and hooks where user-defined client-side callbacks can be injected.</p>
          <p>User code can be associated with Captcha workflow events using the <code>BotDetect.RegisterCustomHandler()</code> function, as shown in the example JavaScript code.</p>
         <p>Loading the form will initialize the client-side <code>Captcha</code> object (created by the <code>BotDetect.Init()</code> JavaScript call included in Captcha markup), and result in the <code>PostInit</code> event.</p>
-        <p>Clicking the Captcha sound icon will reuslt in the <code>PrePlaySound</code> event before the audio elements are added to the page DOM. There is no <code>PostPlaySound</code> event since not all browsers allow user callbacks when browser sound playing finishes.</p>
+        <p>Clicking the Captcha sound icon will result in the <code>PrePlaySound</code> event before the audio elements are added to the page DOM. There is no <code>PostPlaySound</code> event since not all browsers allow user callbacks when browser sound playing finishes.</p>
         <p>Clicking the Captcha reload icon will result in <code>PreReloadImage</code> and <code>PostReloadImage</code> events, executed before and after the Http request loading the new Captcha image from the server.</p>
         <p>Clicking the Captcha image (i.e. the included Captcha help link) will result in the <code>OnHelpLinkClick</code> event.</p>
         <p>Typing in a Captcha code and clicking the <em>Validate</em> button will first result in the <code>PreAjaxValidate</code> event, and later in either <code>AjaxValidationFailed</code> or <code>AjaxValidationPassed</code> depending on whether the server responds that the typed-in Captcha code was correct or not. In case of Ajax asynchronous request errors, <code>AjaxValidationError</code> will be called.</p>
@@ -144,7 +144,7 @@
           <li>It also has limited sound functionality, replacing the CAPTCHA sound with "SOUND DEMO" for randomly selected 50% of all CAPTCHA codes.</li>
           <li>Lastly, the bottom 10 px of the CAPTCHA image are reserved for a link to the BotDetect website.</li>
         </ul>
-        <p>These limitations are removed if you <a rel="nofollow" href="http://captcha.com/shop.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0" title="BotDetect CAPTCHA online store, pricing information, payment options, licensing &amp; upgrading">upgrade</a> your BotDetect license.</p>
+        <p>These limitations are removed if you <a rel="nofollow" href="http://captcha.com/shop.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0" title="BotDetect CAPTCHA online store, pricing information, payment options, licensing &amp; upgrading">upgrade</a> your BotDetect license.</p>
       </div>
       <?php } ?>
     </div>

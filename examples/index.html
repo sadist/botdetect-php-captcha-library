@@ -234,7 +234,7 @@ a:hover {
     <p>Client-side Captcha object initialization, Captcha image reloading, Captcha sound playback, built-in Captcha Ajax validation, and Captcha help link clicks all have a number of related client-side "events" and hooks where user-defined client-side callbacks can be injected.</p>
     <p>User code can be associated with Captcha workflow events using the <code>BotDetect.RegisterCustomHandler()</code> function, as shown in the example JavaScript code.</p>
     <p>Loading the form will initialize the client-side Captcha object (created by the <code>BotDetect.Init()</code> JavaScript call included in Captcha markup), and result in the <code>PostInit</code> event.</p>
-    <p>Clicking the Captcha sound icon will reuslt in the <code>PrePlaySound</code> event before the audio elements are added to the page DOM. There is no <code>PostPlaySound</code> event since not all browsers allow user callbacks when browser sound playing finishes.</p>
+    <p>Clicking the Captcha sound icon will result in the <code>PrePlaySound</code> event before the audio elements are added to the page DOM. There is no <code>PostPlaySound</code> event since not all browsers allow user callbacks when browser sound playing finishes.</p>
     <p>Clicking the Captcha reload icon will result in <code>PreReloadImage</code> and <code>PostReloadImage</code> events, executed before and after the Http request loading the new Captcha image from the server.</p>
     <p>Clicking the Captcha image (i.e. the included Captcha help link) will result in the <code>OnHelpLinkClick</code> event.</p>
     <p>Typing in a Captcha code and clicking the <em>Validate</em> button will first result in the <code>PreAjaxValidate</code> event, and later in either <code>AjaxValidationFailed</code> or <code>AjaxValidationPassed</code> depending on whether the server responds that the typed-in Captcha code was correct or not. In case of Ajax asynchronous request errors, <code>AjaxValidationError</code> will be called.</p>
@@ -272,14 +272,14 @@ a:hover {
   
   <h2 id="wordpress_plugin">BotDetect PHP WordPress CAPTCHA Plugin</h2>
   <p>BotDetect Captcha  protection for WordPress forms is packaged as a simple <a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/wordpress-captcha.html">WordPress plugin</a> which is easy to install and configure (it only requires ticking a checkbox on the plugin settings page).</p> 
-  <p>To keep the basic BotDetect Captcha library download reasonably small, plugin is a <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=wp&utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">separate download available from captcha.com</a>.</p> 
+  <p>To keep the basic BotDetect Captcha library download reasonably small, plugin is a <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=wp&utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">separate download available from captcha.com</a>.</p> 
   <p>Here are the currently supported WP form integrations:</p>
   
   <fieldset>
     <h3>WordPress Login Captcha</h3>
     <p>The BotDetect PHP Captcha WordPress plugin allows easy integration with WordPress Login forms. Adding Captcha protection to login attempts is an effective way to prevent automated username &amp; password brute-forcing attacks which try to guess access info for existing user accounts.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/wordpress-login-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the guide online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/wordpress-login-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the guide online</a></li>
     </ul>
   </fieldset>
 
@@ -287,7 +287,7 @@ a:hover {
     <h3>WordPress User Registration Captcha</h3>
     <p>The BotDetect PHP Captcha WordPress plugin allows easy integration with the WordPress User Registration form. Adding Captcha protection to account registration attempts is an effective way to prevent bots from automatically registering a large number of trash accounts for spamming purposes.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/wordpress-user-registration-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the guide online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/wordpress-user-registration-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the guide online</a></li>
     </ul>
   </fieldset>
 
@@ -295,7 +295,7 @@ a:hover {
     <h3>WordPress Lost Password Captcha</h3>
     <p>The BotDetect PHP Captcha WordPress plugin allows easy integration with the WordPress Lost Password form. Requiring Captcha validation before allowing account passwords to be reset is an effective way to prevent bots from trying to obtain access to existing user accounts for spamming purposes.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/wordpress-lost-password-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the guide online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/wordpress-lost-password-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the guide online</a></li>
     </ul>  
 
   </fieldset>
@@ -304,7 +304,7 @@ a:hover {
     <h3>WordPress Comments Captcha</h3>
     <p>The BotDetect PHP Captcha WordPress plugin allows easy integration with WordPress Comments to prevent automated comment spam. Requiring Captcha validation for anonymous comments is an effective way to prevent bots from submitting a large number of spam comments.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/wordpress-comments-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the guide online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/wordpress-comments-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the guide online</a></li>
     </ul>  
 
   </fieldset>
@@ -313,7 +313,7 @@ a:hover {
     <h3>Contact Form 7 Captcha</h3>
     <p>The BotDetect PHP Captcha WordPress plugin allows easy integration with <a target="_blank" href="https://wordpress.org/plugins/contact-form-7/">Contact Form 7</a> plugin to prevent automated contact form spam. Requiring Captcha validation for anonymous contact is an effective way to prevent bots from submitting a large number of form spam.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/contact-form-7-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the guide online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/howto/wp/contact-form-7-captcha.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the guide online</a></li>
     </ul>  
 
   </fieldset>
@@ -322,7 +322,7 @@ a:hover {
 
   
   <h2 id="cakephp_integration_examples">BotDetect CakePHP Captcha Integration Examples</h2>
-	<p>These code examples show how to <a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/cakephp-captcha-quickstart.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">integrate BotDetect in your CakePHP applications</a>. To keep the basic BotDetect Captcha library download reasonably small, CakePHP Captcha integration code and examples are a separate download available from <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=cakephp&amp;utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">the BotDetect CakePHP Captcha page</a>.</p>
+	<p>These code examples show how to <a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/cakephp-captcha-quickstart.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">integrate BotDetect in your CakePHP applications</a>. To keep the basic BotDetect Captcha library download reasonably small, CakePHP Captcha integration code and examples are a separate download available from <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=cakephp&amp;utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">the BotDetect CakePHP Captcha page</a>.</p>
 
 	<fieldset>
 		<h3>CakePhp Basic BotDetect Captcha Example</h3>
@@ -330,7 +330,7 @@ a:hover {
     <p>Alongside the Captcha image, the user is provided with an input field to retype the displayed characters. Depending on if the Captcha code entered matches the displayed one or not, a message stating the validation result is shown on the form.</p>
     <p>The simple code showing the message in this example would of course be replaced with useful form processing code in a real world scenario. </p>
 		<ul>
-			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/cakephp-basic-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/cakephp-basic-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
 		</ul>
 	</fieldset>
   
@@ -340,7 +340,7 @@ a:hover {
 		<p>The example is based around a contact form which sends email if the user input is considered valid &ndash; a likely real world scenario for Captcha protection integration.</p>
     <p>To keep the example brief, it doesn't use a database backend. Still, this type of Model integration is ideal for protecting database-driven forms that take advantage of the <a href="http://book.cakephp.org/2.0/en/models.html" target="_blank">CakePHP Model infrastructure</a>.</p>
 		<ul>
-			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/cakephp-form-model-validation-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/cakephp-form-model-validation-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
 		</ul>
 	</fieldset>
 
@@ -348,7 +348,7 @@ a:hover {
     <h3>CakePhp Auth BotDetect Captcha Example</h3>
     <p>This example demonstrates how to integrate BotDetect PHP Captcha into login and register forms in a scenario where <a href="http://book.cakephp.org/3.0/en/controllers/components/authentication.html">CakePHP Auth Component</a> is used to authenticate users to your application.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/cakephp-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/cakephp-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
     </ul>
   </fieldset>
   
@@ -356,7 +356,7 @@ a:hover {
   
   
   <h2 id="codeigniter_integration_examples">BotDetect CodeIgniter Captcha Integration Examples</h2>
-	<p>These code examples show how to <a href="https://captcha.com/doc/php/codeigniter-captcha-quickstart.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0" target="_blank" rel="nofollow">integrate BotDetect in your CodeIgniter applications</a>. To keep the basic BotDetect Captcha library download reasonably small, CodeIgniter Captcha integration code and examples are a separate download available from <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=codeigniter&amp;utm_medium=php&amp;utm_campaign=4.0.0">the BotDetect CodeIgniter Captcha page</a>.</p>
+	<p>These code examples show how to <a href="https://captcha.com/doc/php/codeigniter-captcha-quickstart.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0" target="_blank" rel="nofollow">integrate BotDetect in your CodeIgniter applications</a>. To keep the basic BotDetect Captcha library download reasonably small, CodeIgniter Captcha integration code and examples are a separate download available from <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=codeigniter&amp;utm_medium=php&amp;utm_campaign=4.0.0">the BotDetect CodeIgniter Captcha page</a>.</p>
 	
 	<fieldset>
 		<h3>CodeIgniter Basic BotDetect Captcha Example</h3>
@@ -364,7 +364,7 @@ a:hover {
     <p>Alongside the Captcha image, the user is provided with an input field to retype the displayed characters. Depending on if the Captcha code entered matches the displayed one or not, a message stating the validation result is shown on the form.</p>
     <p>The simple code showing the message in this example would of course be replaced with useful form processing code in a real world scenario. </p>
 		<ul>
-			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-basic-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-basic-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
 		</ul>
 	</fieldset>
   
@@ -373,7 +373,7 @@ a:hover {
     <p>This code example shows how to integrate BotDetect PHP Captcha validation and CodeIgniter form validation functionality. It uses the <a target="_blank" href="http://codeigniter.com/user_guide/helpers/form_helper.html">CodeIgniter Form helper</a> and the <a href="http://codeigniter.com/user_guide/libraries/form_validation.html" target="_blank">Form Validation library</a>.</p>
 		<p>The brief example is based around a contact form which sends email if the user input is considered valid – a likely real world scenario for Captcha protection integration.</p>
 		<ul>
-			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-form-validation-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-form-validation-captcha-sample.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
 		</ul>
 	</fieldset>
 
@@ -381,7 +381,7 @@ a:hover {
     <h3>CodeIgniter Bit Auth BotDetect Captcha Example</h3>
     <p>CodeIgniter Bit Auth CAPTCHA Example demonstrates how to integrate BotDetect PHP Captcha into login, register and reset password forms in a scenario where Bit Auth library is used to authenticate users to your application.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-bit-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-bit-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
     </ul>
   </fieldset>
 
@@ -389,7 +389,7 @@ a:hover {
     <h3>CodeIgniter Ion Auth BotDetect Captcha Example</h3>
     <p>CodeIgniter Ion Auth CAPTCHA Example demonstrates how to integrate BotDetect PHP Captcha into login, register and reset password forms in a scenario where <a href="http://benedmunds.com/ion_auth/" target="_blank">Ion Auth</a> library is used to authenticate users to your application.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-ion-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-ion-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
     </ul>
   </fieldset>
 
@@ -397,7 +397,7 @@ a:hover {
     <h3>CodeIgniter Tank Auth BotDetect Captcha Example</h3>
     <p>CodeIgniter Tank Auth CAPTCHA Example demonstrates how to integrate BotDetect PHP Captcha into login, register and reset password forms in a scenario where <a href="https://konyukhov.com/soft/tank_auth/" target="_blank">Tank Auth</a> library is used to authenticate users to your application.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-tank-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/samples/codeigniter-tank-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
     </ul>
   </fieldset>
   
@@ -405,7 +405,7 @@ a:hover {
 
 
   <h2 id="laravel_integration_examples">BotDetect Laravel Captcha Integration Examples</h2>
-  <p>These code examples show how to <a href="https://captcha.com/doc/php/laravel-captcha-quickstart.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0" target="_blank" rel="nofollow">integrate BotDetect in your Laravel applications</a>. To keep the basic BotDetect Captcha library download reasonably small, Laravel Captcha integration code and examples are a separate download available from <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=laravel&amp;utm_medium=php&amp;utm_campaign=4.0.0">the BotDetect Laravel Captcha page</a>.</p>
+  <p>These code examples show how to <a href="https://captcha.com/doc/php/laravel-captcha-quickstart.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0" target="_blank" rel="nofollow">integrate BotDetect in your Laravel applications</a>. To keep the basic BotDetect Captcha library download reasonably small, Laravel Captcha integration code and examples are a separate download available from <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=laravel&amp;utm_medium=php&amp;utm_campaign=4.0.0">the BotDetect Laravel Captcha page</a>.</p>
   
   <fieldset>
     <h3>Laravel Basic BotDetect Captcha Example</h3>
@@ -413,7 +413,7 @@ a:hover {
     <p>Alongside the Captcha image, the user is provided with an input field to retype the displayed characters. Depending on if the Captcha code entered matches the displayed one or not, a message stating the validation result is shown on the form.</p>
     <p>The simple code showing the message in this example would of course be replaced with useful form processing code in a real world scenario. </p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/laravel-basic-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/laravel-basic-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
     </ul>
   </fieldset>
   
@@ -422,7 +422,7 @@ a:hover {
     <p>Laravel Form Validation BotDetect CAPTCHA Example shows how to integrate BotDetect PHP Captcha validation and Laravel validation functionality. It uses Laravel's <a href="http://laravel.com/docs/5.1/validation" target="_blank">validation</a> class</p>
     <p>The brief example is based around a contact form which sends email if the user input is considered valid – a likely real world scenario for Captcha protection integration.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/laravel-form-validation-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/laravel-form-validation-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
     </ul>
   </fieldset>
 
@@ -430,21 +430,21 @@ a:hover {
     <h3>Laravel Auth BotDetect Captcha Example</h3>
     <p>Laravel Auth CAPTCHA Example demonstrates how to integrate BotDetect PHP Captcha into login, register and reset password forms in a scenario where <a target="_blank" href="http://laravel.com/docs/5.1/authentication">Laravel Auth</a> is used to authenticate users to your application.</p>
     <ul>
-      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/laravel-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+      <li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/laravel-auth-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
     </ul>
   </fieldset>
 
   <p class="toplink"><a href="#top" title="BotDetect CAPTCHA PHP Code Examples &amp; Demos">[back to top]</a></p>
   	
     <h2 id="symfony_integration_examples">BotDetect CAPTCHA Symfony Integration Code Examples</h2>
-	<p>Captcha Symfony integration code examples show how to <a href="https://captcha.com/doc/php/symfony-captcha-bundle-quickstart.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0" target="_blank" rel="nofollow">use BotDetect Captcha protection in your Symfony applications</a>. To keep the basic BotDetect Captcha library download reasonably small, Symfony Captcha integration code and examples are a separate download available from <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=symfony&amp;utm_medium=php&amp;utm_campaign=4.0.0">the BotDetect Symfony Captcha page</a>.</p>
+	<p>Captcha Symfony integration code examples show how to <a href="https://captcha.com/doc/php/symfony-captcha-bundle-quickstart.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0" target="_blank" rel="nofollow">use BotDetect Captcha protection in your Symfony applications</a>. To keep the basic BotDetect Captcha library download reasonably small, Symfony Captcha integration code and examples are a separate download available from <a target="_blank" rel="nofollow" href="https://captcha.com/captcha-download.html?version=php&integration=symfony&amp;utm_medium=php&amp;utm_campaign=4.0.0">the BotDetect Symfony Captcha page</a>.</p>
     <fieldset>
 		<h3>Symfony Basic BotDetect Captcha Code Example</h3>
 		<p>This example illustrates the most basic form of BotDetect PHP Captcha protection in Symfony MVC applications.</p>
 	<p>Alongside the Captcha image, the user is provided with an input field to retype the displayed characters. Depending on if the Captcha code entered matches the displayed one or not, a message stating the validation result is shown on the form.</p>
   <p>The simple code showing the message in this example would of course be replaced with useful form processing code in a real world scenario.</p>
 		<ul>
-			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/symfony-basic-captcha-bundle-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/symfony-basic-captcha-bundle-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
 		</ul>
 	</fieldset>
     <fieldset>
@@ -452,7 +452,7 @@ a:hover {
 		<p>This example shows how to integrate CaptchaBundle in a form. It also uses the <code>ValidCaptcha</code> constraint to validate captcha code when a form is submitted.</p>
 	<p>The example is based around a contact form which sends email if the user input is considered valid – a likely real world scenario for Captcha protection integration.</p>
 		<ul>
-			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/symfony-form-validation-captcha-bundle-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/symfony-form-validation-captcha-bundle-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
 		</ul>
 	</fieldset>
     
@@ -460,7 +460,7 @@ a:hover {
 		<h3>Symfony FOSUserBundle Captcha Code Example</h3>
 		<p>The FOSUserBundle adds support for a database-backed user system in Symfony. It provides a flexible framework for user management that aims to handle common tasks such as user registration and password retrieval. This code example shows you how to integrate CaptchaBundle into FOSUserBundle login and register forms.</p>
 		<ul>
-			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/symfony-fosuserbundle-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0">Read more about the code example online</a></li>
+			<li><a target="_blank" rel="nofollow" href="https://captcha.com/doc/php/examples/symfony-fosuserbundle-captcha-example.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0">Read more about the code example online</a></li>
 		</ul>
 	</fieldset>
   	<p class="toplink"><a href="#top" title="BotDetect CAPTCHA PHP Code Examples &amp; Demos">[back to top]</a></p>

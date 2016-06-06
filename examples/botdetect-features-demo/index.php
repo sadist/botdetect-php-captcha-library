@@ -284,7 +284,7 @@
         <h3>Localization</h3>
         <p>BotDetect installations include pronunciation sound packages (required for localized Captcha sounds) only for North-American locales by deafult. The <code>Locale</code> drop-down list values relect this fact.</p>
         <p>You can specify any other locale string for the <code>Locale</code> parameter value (e.g. <code>"en-GB"</code>, <code>"ru"</code>, <code>"zh-Hans"</code>). However, not all character sets might be supported yet, and you will have to download the pronunciation sound package separately from our site when it's available.</p>
-        <p>You can always see the full list of locales for which we support both Captcha images and Captcha sounds &ndash; and download the required pronunciation sound packages &ndash; at the <a rel="nofollow" href="http://captcha.com/captcha-localizations.html?utm_source=installation&amp;utm_medium=asp&amp;utm_campaign=4.0.0" title="BotDetect 4 CAPTCHA Localizations">BotDetect 4 CAPTCHA localizations</a> page.</p>
+        <p>You can always see the full list of locales for which we support both Captcha images and Captcha sounds &ndash; and download the required pronunciation sound packages &ndash; at the <a rel="nofollow" href="http://captcha.com/captcha-localizations.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0" title="BotDetect 4 CAPTCHA Localizations">BotDetect 4 CAPTCHA localizations</a> page.</p>
       </div>
     </div>
     
@@ -297,7 +297,7 @@
           <li>It also has limited sound functionality, replacing the CAPTCHA sound with "SOUND DEMO" for randomly selected 50% of all CAPTCHA codes.</li>
           <li>Lastly, the bottom 10 px of the CAPTCHA image are reserved for a link to the BotDetect website.</li>
         </ul>
-        <p>These limitations are removed if you <a rel="nofollow" href="http://captcha.com/shop.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.0.0" title="BotDetect CAPTCHA online store, pricing information, payment options, licensing &amp; upgrading">upgrade</a> your BotDetect license.</p>
+        <p>These limitations are removed if you <a rel="nofollow" href="http://captcha.com/shop.html?utm_source=installation&amp;utm_medium=php&amp;utm_campaign=4.1.0" title="BotDetect CAPTCHA online store, pricing information, payment options, licensing &amp; upgrading">upgrade</a> your BotDetect license.</p>
       </div>
       <?php } ?>
     </div>
