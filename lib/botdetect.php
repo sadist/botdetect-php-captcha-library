@@ -34,6 +34,9 @@ if (is_file(__DIR__ . '/botdetect/CaptchaIncludes.php')) {
 define('BDC_INCLUDE_PATH', $BDC_Include_Path);
 define('BDC_URL_ROOT', $BDC_Url_Root);
 define('BDC_CONFIG_OVERRIDE_PATH', $BDC_Config_Override_Path);
+if(!defined('BDC_CONFIG_PATH')) {
+	define('BDC_CONFIG_PATH', $BDC_Config_Override_Path);
+}
 
 
 function BDC_NormalizePath($p_Path) {
@@ -58,7 +61,7 @@ require_once(BDC_INCLUDE_PATH . 'CaptchaConfigDefaults.php');
 // b) optional config override
 function BDC_ApplyUserConfigOverride($CaptchaConfig, $CurrentCaptchaId) {
   $BotDetect = clone $CaptchaConfig;
-  $BDC_ConfigOverridePath = BDC_CONFIG_OVERRIDE_PATH . 'CaptchaConfig.php';
+  $BDC_ConfigOverridePath = BDC_CONFIG_PATH . 'CaptchaConfig.php';
   if (is_file($BDC_ConfigOverridePath)) {
     include($BDC_ConfigOverridePath);
     CaptchaConfiguration::ProcessGlobalDeclarations($BotDetect);
